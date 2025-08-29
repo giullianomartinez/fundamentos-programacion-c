@@ -1,6 +1,75 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdbool.h>
+
+
+int factorial(long int n) {
+  int fact = 1;
+  for (int i=2; i<n+1; i++) {
+    fact*= i;
+  }
+  return fact;
+}
+
+
+int experiencia(int n) {
+  int suma = 0;
+  for (int k=0; k<n; k++) {
+    int numerador = pow(2*k, 2*k+1);
+    int denominador = factorial(k+1);
+    suma+= numerador/denominador;
+  }
+  return (int)pow(suma,1/2);
+}
+
+
+int espiritu(int n) {
+  int sumaDiv = 0;
+  for (int i = 1; i < n+1; i++) {
+    if (n % i == 0 && i % 2 == 1) {
+      sumaDiv += i;
+    }
+  }
+  return sumaDiv;
+}
+
+
+int chakra(int m, int n) {
+  int numero = m * n;
+  int sumaDigitosPares = 0;
+  while (numero > 0) {
+    int ultDigito = numero % 10;
+    if (ultDigito % 2 == 0) {
+      sumaDigitosPares += ultDigito;
+    }
+    numero//= 10;
+  }
+  return sumaDigitosPares;
+}
+
+
+bool contieneAl2(int n) {
+  while (n > 0) {
+    ultDigito = n % 10;
+    if (ultDigito == 2) {
+      return true;
+    }
+    n//= 10;
+  }
+  return true;
+}
+
+
+float calcularPorcentaje(int parcial, int total) {
+  if (total == 0) {
+    return 0.0;
+  } else {
+    return (parcial/total) * 100;
+  }
+}
+
+
 
 int main() {
   int totalNinjas = 0, contadorPromovidos = 0, sumaIvs = 0;
@@ -37,7 +106,7 @@ int main() {
     int promedio = (int)sumaIvs/totalNinjas;
     float porcentaje = round(calcularPorcentaje(contadorPromovidos, totalNinjas));
     printf("\nPromedio IVS ninjas procesados = %d\n", promedio);
-    printf("%d % de los ninjas fueron promovidos a la jerarquía chünin\n", porcentaje);
+    printf("%.1f % de los ninjas fueron promovidos a la jerarquía chünin\n", porcentaje);
     
   }
   
