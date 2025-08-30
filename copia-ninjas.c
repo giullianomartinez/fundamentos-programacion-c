@@ -14,13 +14,13 @@ int factorial(long int n) {
 
 
 int experiencia(int n) {
-  int suma = 0;
+  double suma = 0.0;
   for (int k=0; k<n; k++) {
-    int numerador = pow(2*k, 2*k+1);
-    int denominador = factorial(k+1);
+    double numerador = pow(2*k, 2*k+1);
+    double denominador = factorial(k+1);
     suma+= numerador/denominador;
   }
-  return (int)pow(suma,1/2);
+  return (int)sqrt(suma);
 }
 
 
@@ -51,13 +51,13 @@ int chakra(int m, int n) {
 
 bool contieneAl2(int n) {
   while (n > 0) {
-    ultDigito = n % 10;
+    int ultDigito = n % 10;
     if (ultDigito == 2) {
       return true;
     }
     n//= 10;
   }
-  return true;
+  return false;
 }
 
 
@@ -65,7 +65,7 @@ float calcularPorcentaje(int parcial, int total) {
   if (total == 0) {
     return 0.0;
   } else {
-    return (parcial/total) * 100;
+    return ((float)parcial/total) * 100;
   }
 }
 
@@ -90,6 +90,7 @@ int main() {
     scanf("%d", &nci);
     
     int ivs = (experiencia(mce) + espiritu(vsm)) * chakra(aef,nci);
+    sumaIvs += ivs;
 
     printf("Ninja %49s \n", nombre);
     printf("Indice de voluntad shinobi = %d\n", ivs);
@@ -106,8 +107,8 @@ int main() {
     int promedio = (int)sumaIvs/totalNinjas;
     float porcentaje = round(calcularPorcentaje(contadorPromovidos, totalNinjas));
     printf("\nPromedio IVS ninjas procesados = %d\n", promedio);
-    printf("%.1f % de los ninjas fueron promovidos a la jerarquía chünin\n", porcentaje);
+    printf("%.1f %% de los ninjas fueron promovidos a la jerarquía chünin\n", porcentaje);
     
   }
-  
+  return 0;
 }
