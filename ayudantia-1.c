@@ -87,7 +87,7 @@ int main() {
     return 0;
 }
 */
-
+// Definir si un numero es deficiente (la suma de sus divisores es menor al numero)
 int main() {
     int n, sumaDivisores = 0;
     printf("Ingrese un numero: ");
