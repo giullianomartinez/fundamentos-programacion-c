@@ -92,7 +92,7 @@ int main() {
     int ivs = (experiencia(mce) + espiritu(vsm)) * chakra(aef,nci);
     sumaIvs += ivs;
 
-    printf("Ninja %49s \n", nombre);
+    printf("Ninja: %s \n", nombre);
     printf("Indice de voluntad shinobi = %d\n", ivs);
 
     if (ivs > 5000 && contieneAl2(ivs)) {
