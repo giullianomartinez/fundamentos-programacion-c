@@ -43,7 +43,7 @@ int chakra(int m, int n) {
     if (ultDigito % 2 == 0) {
       sumaDigitosPares += ultDigito;
     }
-    numero//= 10;
+    numero/= 10;
   }
   return sumaDigitosPares;
 }
@@ -55,7 +55,7 @@ bool contieneAl2(int n) {
     if (ultDigito == 2) {
       return true;
     }
-    n//= 10;
+    n/= 10;
   }
   return false;
 }
