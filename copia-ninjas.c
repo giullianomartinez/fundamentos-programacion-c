@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 
-int factorial(long int n) {
-  int fact = 1;
+long long int factorial(long int n) {
+  long long int fact = 1;
   for (int i=2; i<n+1; i++) {
     fact*= i;
   }
@@ -13,11 +13,23 @@ int factorial(long int n) {
 }
 
 
+<<<<<<< HEAD
+double experiencia(int n) {
+  double suma = 0;
+=======
 int experiencia(int n) {
   double suma = 0.0;
+>>>>>>> 8246d86cde578ad4824c7b6be8ad7d2ad6a73c54
   for (int k=0; k<n; k++) {
+<<<<<<< HEAD
+    double base = 2.0*k;
+    double exponente = 2*k+1;
+    double numerador = pow(base,exponente);
+    double denominador = factorial(k+1);
+=======
     double numerador = pow(2*k, 2*k+1);
     double denominador = factorial(k+1);
+>>>>>>> 8246d86cde578ad4824c7b6be8ad7d2ad6a73c54
     suma+= numerador/denominador;
   }
   return (int)sqrt(suma);
@@ -43,7 +55,11 @@ int chakra(int m, int n) {
     if (ultDigito % 2 == 0) {
       sumaDigitosPares += ultDigito;
     }
+<<<<<<< HEAD
+    numero /= 10;
+=======
     numero/= 10;
+>>>>>>> 8246d86cde578ad4824c7b6be8ad7d2ad6a73c54
   }
   return sumaDigitosPares;
 }
@@ -55,7 +71,11 @@ bool contieneAl2(int n) {
     if (ultDigito == 2) {
       return true;
     }
+<<<<<<< HEAD
+    n /= 10;
+=======
     n/= 10;
+>>>>>>> 8246d86cde578ad4824c7b6be8ad7d2ad6a73c54
   }
   return false;
 }
@@ -92,7 +112,7 @@ int main() {
     int ivs = (experiencia(mce) + espiritu(vsm)) * chakra(aef,nci);
     sumaIvs += ivs;
 
-    printf("Ninja: %s \n", nombre);
+    printf("Ninja %s \n", nombre);
     printf("Indice de voluntad shinobi = %d\n", ivs);
 
     if (ivs > 5000 && contieneAl2(ivs)) {
