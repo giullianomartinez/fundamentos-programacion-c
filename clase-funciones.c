@@ -1,4 +1,16 @@
 #include <stdio.h>
+#include <math.h>
+
+int conteoDigitos(int n1) {
+    int dig = 0;
+    int num = n1;
+
+    dig = log10(num);
+    dig+= 1;
+    return dig;
+
+}
+
 
 int main() {
     float num1, num2, resultado = 0;
