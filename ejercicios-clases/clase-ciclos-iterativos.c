@@ -113,3 +113,32 @@ int main()
     }
     return 0;
 }
+
+5.- Haga un algoritmo que verifique que un número es divisible por 3, sin utilizar el operador 
+módulo (%)
+
+#include <stdio.h>
+
+int main() {
+    int n, sumaDig = 0;
+    
+    printf("Ingrese un num entero: ");
+    scanf("%d", &n);\
+    int copia = n;
+    
+    while (n != 0) {
+        int ultDig = n % 10;
+        sumaDig += ultDig;
+        n /= 10;
+    }
+    
+    if (sumaDig == 3 || sumaDig == 6 || sumaDig == 9) {
+        printf("%d es divisible por 3", copia);
+    } else {
+        printf("%d no es divisible por 3", copia);
+    }
+    
+    
+    return 0;
+}
+
