@@ -25,40 +25,27 @@ int main()
 múltiplo.
 
 
-int calcularMCD(int a, int b)
-{
-    while (b != 0)
-    {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
-int calcularMCM(int a, int b)
-{
-    int mcd = calcularMCD(a, b);
-    return (a * b) / mcd;
-}
-
-int main()
-{
-    int num1, num2;
-    do
-    {
+int main() {
+    long long int a, b, mcm = 0;
+    
+    do {
         printf("Ingrese dos numeros positivos: ");
-        scanf("%d %d", &num1, &num2);
+        scanf("%lld %lld", &a, &b);
+    } while (a <= 0 || b <= 0);
 
-        if (num1 < 0 || num2 < 0)
-        {
-            printf("Deben ser dos numeros positivos");
-        }
-    } while (num1 <= 0 || num2 <= 0);
-
-    int mcm = calcularMCM(num1, num2);
-    printf("El MCM de %d y %d es %d", num1, num2, mcm);
-
+    
+    long long int mcd = a, copiaB = b;
+    
+    while (copiaB != 0) {
+        long long int temp = copiaB;
+        copiaB = mcd % copiaB;
+        mcd = temp;
+    }
+    mcm = (a * b) / mcd;
+    
+    printf("MCM: %lld", mcm);
+    
+    
     return 0;
 }
 
