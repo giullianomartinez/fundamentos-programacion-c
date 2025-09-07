@@ -53,26 +53,31 @@ int main() {
  3.- Diseñe un algoritmo que reciba como entrada dos números, y haga una suma de
 todos los enteros que van desde el primero al segundo. Ambos números pueden ser reales.
 
- int main()
-{
-    float num1, num2, suma = 0;
-    printf("Ingrese dos numeros: ");
-    scanf("%f %f", &num1, &num2);
+#include <stdio.h>
 
-    int enteroA = (int)(num1), enteroB = (int)(num2);
-
-    con ciclo for seria asi
-    for (int i = enteroA; i <= enteroB; i++)
-    {
+int main() {
+    double a, b;
+    
+    do {
+        printf("Ingrese dos numeros positivos: ");
+        scanf("%lf %lf", &a, &b);
+    } while (a <= 0 || b <= 0);
+    
+    double menor = (a < b) ? a : b;
+    double mayor = (a > b) ? a : b;
+    
+    long long int inicio = (menor == (int)menor) ? (int)menor : ((int)menor + 1);
+    long long int fin = (int)mayor, suma = 0;
+    
+    for (int i = inicio; i<= fin; i++) {
         suma += i;
     }
+    printf("suma: %lld", suma);
+    
+    
+    return 0;
+} */
 
-    // con formula de sumatoria:
-    suma = (enteroB - enteroA + 1) * (enteroA + enteroB) / 2;
-
-    printf("resultado suma: %.2f", suma);
-}
-*/
 
 // 16.- Escriba un algoritmo que genere las primeras N líneas de un triangulo
 
