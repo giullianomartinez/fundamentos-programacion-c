@@ -1,43 +1,55 @@
 // Este programa calcula el digito verificador de un rut chileno usando el algoritmo del modulo 11.
 
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h> //abs()
 
-int reordenarRut(int rut);
-int sumaSerie(int rut);
+int sumaSerie(int rut); // Multiplica cada digito del num invertido por una serie y la suma
+int obtenerVerificador(int suma); // Devuelve el digito verificador (falta validar en main)
 
 int main() {
     int rutOg;
     printf("Ingrese rut sin puntos ni digito verificador: ");
     scanf("%d", &rutOg);
     
-    int rut = reordenarRut(rutOg);
-    int suma = sumaSerie(rut);
-
+    int suma = sumaSerie(rutOg);
+    int verificador = obtenerVerificador(suma);
+    
+    if (verificador == 11) {
+        printf("Dig. verificador: 0");
+    } else if (verificador == 10) {
+        printf("Dig. verificador: K");
+    } else {
+        printf("Dig. verificador: %d",verificador);
+    }
     
     return 0;
 }
 
-int reordenarRut(int rut) {
-    int inv=0;
-    while (rut != 0) {
-        int ultDig = rut%10;
-        inv = inv*10 + ultDig;
-        rut/= 10;
-    }
-    return inv;
-}
 
-int sumaSerie(int rut) {
-    int serie[6] = {2,3,4,5,6,7};
+ int sumaSerie(int rut) {
     int suma = 0;
-    int i=0;
-    
+    int multiplicador = 2;
+
     while (rut != 0) {
-        int ultDig = rut%10;
-        suma += ultDig * serie[i%6];
+        int digito = rut % 10;
+        suma += digito * multiplicador;
         rut /= 10;
-        i++;
+
+        multiplicador = (multiplicador == 7) ? 2 : multiplicador + 1;
     }
+
     return suma;
+} 
+
+
+int obtenerVerificador(int suma) {
+    int division = suma/11;
+    int multiplicacion = division*11;
+    int resta = abs(suma-multiplicacion);
+    int digito = 11-resta;
+    
+    if (digito == 11) return 0;
+    if (digito == 10) return 10;
+    return digito;
+    
 }
