@@ -7,7 +7,7 @@ int main() {
     printf("Ingrese cant. de filas: ");
     scanf("%d",&n);
     
-    for (int filas=0; filas<=n; filas++) {
+    for (int filas=0; filas<n; filas++) {
         for (int esp=1; esp<=n-filas; esp++) {
             printf(" ");
         }
