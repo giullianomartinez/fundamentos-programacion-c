@@ -1,1 +1,43 @@
+// Este programa calcula el digito verificador de un rut chileno usando el algoritmo del modulo 11.
 
+#include <stdio.h>
+#include <string.h>
+
+int reordenarRut(int rut);
+int sumaSerie(int rut);
+
+int main() {
+    int rutOg;
+    printf("Ingrese rut sin puntos ni digito verificador: ");
+    scanf("%d", &rutOg);
+    
+    int rut = reordenarRut(rutOg);
+    int suma = sumaSerie(rut);
+
+    
+    return 0;
+}
+
+int reordenarRut(int rut) {
+    int inv=0;
+    while (rut != 0) {
+        int ultDig = rut%10;
+        inv = inv*10 + ultDig;
+        rut/= 10;
+    }
+    return inv;
+}
+
+int sumaSerie(int rut) {
+    int serie[6] = {2,3,4,5,6,7};
+    int suma = 0;
+    int i=0;
+    
+    while (rut != 0) {
+        int ultDig = rut%10;
+        suma += ultDig * serie[i%6];
+        rut /= 10;
+        i++;
+    }
+    return suma;
+}
