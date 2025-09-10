@@ -1,3 +1,4 @@
+// calculadora
 #include <stdio.h>
 #include <math.h>
 
@@ -76,4 +77,71 @@ int main()
     }
 
     return 0;
+}
+
+// Programa para calcular dias, horas y minutos transcurridos a partir de una fecha
+#include <stdio.h>
+
+int main() {
+    int dia, mes, anio, dias, horas, minutos;
+    
+    printf("Ingrese fecha en formato dia mes anio: ");
+    scanf("%d %d %d", &dia, &mes, &anio);
+    
+    dias = calcularDias(dia, mes, anio);
+    horas = dias * 24;
+    minutos = horas * 60;
+    printf("%d dias - %d horas - %d minutos",dias, horas, minutos);
+    
+    
+    return 0;
+}
+
+int calcularDias(int dia, int mes, int anio) {
+    int dias = (anio>0) ? 365*anio + dia : dia, extraBiciesto = anio/4;
+    
+    
+    if (mes > 2) {
+        for (int cont=1; cont<mes; cont++) {
+            dias += 28;
+        }
+        switch (mes) {
+            case 3:
+                dias +=3;
+                break;
+            case 4:
+                dias += 6;
+                break;
+            case 5:
+                dias += 8;
+                break;
+            case 6: 
+                dias += 11;
+                break;
+            case 7:
+                dias += 13;
+                break;
+            case 8:
+                dias += 16;
+                break;
+            case 9:
+                dias += 19;
+                break;
+            case 10:
+                dias += 21;
+                break;
+            case 11:
+                dias += 24;
+                break;
+            case 12:
+                dias += 26;
+                break;
+            default:
+                break;
+        }
+    } 
+    
+    dias += extraBiciesto;
+    return dias;
+    
 }
